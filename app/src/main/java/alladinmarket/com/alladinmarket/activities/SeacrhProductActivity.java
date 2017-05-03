@@ -1,0 +1,62 @@
+package alladinmarket.com.alladinmarket.activities;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+
+import alladinmarket.com.alladinmarket.R;
+import alladinmarket.com.alladinmarket.adapters.MarketAdaper;
+import alladinmarket.com.alladinmarket.adapters.SearchProductAdaper;
+
+public class SeacrhProductActivity extends AppCompatActivity {
+
+
+    private RecyclerView mRecyclerView;
+    private SearchProductAdaper mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+   Toolbar mToolbar ;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_seacrh_product);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.rv_product_list);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter (see also next example)
+        mAdapter = new SearchProductAdaper();
+        mAdapter.setOnItemClickListener(new SearchProductAdaper.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                Intent i = new Intent(SeacrhProductActivity.this,ProductDetailActivity.class);
+                startActivity(i);
+            }
+        });
+
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+}
