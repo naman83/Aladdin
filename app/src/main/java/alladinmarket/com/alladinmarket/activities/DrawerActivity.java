@@ -21,9 +21,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import alladinmarket.com.alladinmarket.R;
+import alladinmarket.com.alladinmarket.fragments.AboutFragment;
 import alladinmarket.com.alladinmarket.fragments.LandingFragment;
 import alladinmarket.com.alladinmarket.fragments.LandingFragment_shopkeepr;
+import alladinmarket.com.alladinmarket.fragments.MyCartFragment;
 import alladinmarket.com.alladinmarket.fragments.OrdersFragment;
+import alladinmarket.com.alladinmarket.fragments.ProfileFragment;
 import alladinmarket.com.alladinmarket.fragments.SearchProductFragment;
 import alladinmarket.com.alladinmarket.fragments.SearchShopsFragment;
 import alladinmarket.com.alladinmarket.utils.MyApplication;
@@ -72,6 +75,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+            mTextView.setText("UPLOAD PRODUCT");
         }
 
         else {
@@ -82,6 +86,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
+            mTextView.setText("HOME");
         }
     }
 
@@ -96,6 +101,14 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         mShuffle = (ImageView) findViewById(R.id.img_shuffle);
         mWindow = (ImageView) findViewById(R.id.img_window);
         mSaveIcon = (ImageView) findViewById(R.id.img_save_icon);
+
+        mSaveIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i =  new Intent(DrawerActivity.this,CartActivity.class);
+                startActivity(i);
+            }
+        });
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
 
         if (MyApplication.sShopkeeper_flag==true) {
@@ -123,6 +136,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                         getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
+                mTextView.setText("PRODUCTS");
 
                 break;
 
@@ -133,6 +147,27 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                         getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
+                mTextView.setText("ORDERS");
+                break;
+
+
+            case R.id.about :
+                fragment = new AboutFragment();
+
+                fragmentTransaction =
+                        getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+                mTextView.setText("About Us");
+                break;
+            case R.id.cart :
+                fragment = new MyCartFragment() ;
+
+                fragmentTransaction =
+                        getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, fragment);
+                fragmentTransaction.commit();
+                mTextView.setText("MY CART");
                 break;
 
 
@@ -147,6 +182,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                             getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, fragment);
                     fragmentTransaction.commit();
+                    mTextView.setText("UPLOAD PRODUCT");
                 }
 
                 else
@@ -156,16 +192,18 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                             getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.fragment_container, fragment);
                     fragmentTransaction.commit();
+                    mTextView.setText("HOME");
                 }
                 break;
 
 
             case R.id.notifications:
-                fragment = new LandingFragment();
+                fragment = new ProfileFragment();
                  fragmentTransaction =
                         getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
+                mTextView.setText("PROFILE");
                break;
 
 
@@ -178,24 +216,9 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
 
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
                 }
+                mTextView.setText("");
                 break;
 
-            case R.id.search_products :
-                 fragment = new SearchProductFragment();
-                fragmentTransaction =
-                        getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();
-                break ;
-
-
-            case R.id.search_shopkeepers :
-                fragment = new SearchShopsFragment();
-                fragmentTransaction =
-                        getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();
-                break ;
 
         }
 

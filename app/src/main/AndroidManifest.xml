@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="alladinmarket.com.alladinmarket">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,10 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.DrawerActivity"
-          />
-        <activity android:name=".activities.DrawerActivity_Shopkeepr"
-            />
+        <activity android:name=".activities.DrawerActivity" />
+        <activity android:name=".activities.DrawerActivity_Shopkeepr" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.SignUpActivity" />
         <activity android:name=".activities.MarketActivity" />
@@ -33,7 +31,8 @@
         <activity android:name=".activities.ShopKeepersActivity" />
         <activity android:name=".activities.ProductDetailActivity" />
         <activity android:name=".activities.PromoterDetailActivity" />
-        <activity android:name=".activities.ShopkeeprDetail"></activity>
+        <activity android:name=".activities.ShopkeeprDetail" />
+        <activity android:name=".activities.SubcategoryActivity"></activity>
     </application>
 
 </manifest>

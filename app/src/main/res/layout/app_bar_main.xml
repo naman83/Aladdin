@@ -42,7 +42,7 @@
                         android:id="@+id/tv_main_toolbar_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                            android:textSize="18sp"
                         android:text="ALLADIN MARKET"
                         android:textColor="@color/cardview_light_background"
                         android:layout_alignParentStart="true"
@@ -51,11 +51,11 @@
                         android:visibility="visible"
                         />
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:id="@+id/img_save_icon"
                         android:visibility="visible"
-                        android:background="@drawable/ic_search"
+                        android:background="@drawable/basket"
 
                         android:layout_marginRight="10dp"
                         android:layout_alignParentRight="true"

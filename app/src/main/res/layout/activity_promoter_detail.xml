@@ -31,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="promoter_name"
+        android:textSize="30dp"
         android:id="@+id/tv_promoter_name"/>
 
 
@@ -38,6 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="shop_promoted"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/tv_shop_promoted"/>
 
 
@@ -45,16 +48,29 @@
 
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="comment"
+        android:layout_marginTop="30dp"
         android:id="@+id/edit_support"/>
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@color/cardview_shadow_end_color"
+        android:background="@color/colorOrange"
         android:id="@+id/img_appreciate"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:text="appreciate
+            "/>
+</LinearLayout>
 
 </LinearLayout>
 </LinearLayout>

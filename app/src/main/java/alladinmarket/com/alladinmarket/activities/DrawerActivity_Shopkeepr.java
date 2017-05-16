@@ -21,6 +21,7 @@ import android.widget.TextView;
 import java.io.File;
 
 import alladinmarket.com.alladinmarket.R;
+import alladinmarket.com.alladinmarket.fragments.AboutFragment;
 import alladinmarket.com.alladinmarket.fragments.LandingFragment;
 import alladinmarket.com.alladinmarket.fragments.LandingFragment_shopkeepr;
 import alladinmarket.com.alladinmarket.fragments.SearchProductFragment;
@@ -118,12 +119,13 @@ public class DrawerActivity_Shopkeepr extends AppCompatActivity implements Navig
                 Bundle bundle = new Bundle();
                 bundle.putString("path", path);
                 bundle.putString("file_name", file_name);
-                fragment = new LandingFragment_shopkeepr();
+                fragment = new AboutFragment();
                 fragment.setArguments(bundle);
                 fragmentTransaction =
                         getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
                 fragmentTransaction.commit();
+                mTextView.setText("UPLOAD PRODUCT");
                 break;
 
 
@@ -147,22 +149,7 @@ public class DrawerActivity_Shopkeepr extends AppCompatActivity implements Navig
                 }
                 break;
 
-            case R.id.search_products :
-                 fragment = new SearchProductFragment();
-                fragmentTransaction =
-                        getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();
-                break ;
 
-
-            case R.id.search_shopkeepers :
-                fragment = new SearchShopsFragment();
-                fragmentTransaction =
-                        getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.commit();
-                break ;
 
         }
 

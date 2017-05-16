@@ -18,11 +18,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -50,7 +52,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class LandingFragment_shopkeepr extends Fragment/* implements Imageutils.ImageAttachmentListener*/{
 
-    ImageView iv_attachment;
+    ImageView iv_attachment1,iv_attachment2,iv_attachment3,iv_attachment4,iv_attachment5;
 
     Uri uri ;
 
@@ -88,6 +90,8 @@ public class LandingFragment_shopkeepr extends Fragment/* implements Imageutils.
     boolean taken = false ;
     boolean imgCapFlag = false ;
 
+    AppCompatSpinner mSpinner ;
+
     private static final Integer[] IMAGES= {R.drawable.tyu,R.drawable.tyu,R.drawable.tyu,R.drawable.tyu};
 
 
@@ -96,12 +100,19 @@ public class LandingFragment_shopkeepr extends Fragment/* implements Imageutils.
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_landingfragmentshopkeeper, container, false);
         // Set title bar
-
+        mSpinner = (AppCompatSpinner)v.findViewById(R.id.spinner_categories);
+        String[] categories = {"category" , "category"} ;
+        mSpinner.setAdapter(new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_dropdown_item,categories));
       //  mTabLayout.setupWithViewPager(mViewPagerFragments);
 
         imageutils =new Imageutils(getActivity());
 
-        iv_attachment=(ImageView)v.findViewById(R.id.img_selectedImage);
+        iv_attachment1=(ImageView)v.findViewById(R.id.img_selectedImage1);
+        iv_attachment2=(ImageView)v.findViewById(R.id.img_selectedImage2);
+        iv_attachment3=(ImageView)v.findViewById(R.id.img_selectedImage3);
+        iv_attachment4=(ImageView)v.findViewById(R.id.img_selectedImage4);
+        iv_attachment5=(ImageView)v.findViewById(R.id.img_selectedImage5);
+
 
         Button btn = (Button)v.findViewById(R.id.btn_select_image) ;
 
@@ -219,7 +230,7 @@ public class LandingFragment_shopkeepr extends Fragment/* implements Imageutils.
                     } catch (Exception ioe) {
                         ioe.printStackTrace();
                     }
-                    iv_attachment.setImageBitmap(mBitMap);
+                    iv_attachment1.setImageBitmap(mBitMap);
                     //mEditingImage.setImageBitmap(Bitmap.createScaledBitmap(mBitMap, mBitMap.getDensity(), (int) mBitMap.getDensity(), false));
                     //   bmp_current.setBitmap(mBitMap);
 
@@ -253,7 +264,7 @@ public class LandingFragment_shopkeepr extends Fragment/* implements Imageutils.
                             mBitMap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
 
 
-                            iv_attachment.setImageBitmap(Bitmap.createScaledBitmap(mBitMap, 512, 512, false));
+                            iv_attachment1.setImageBitmap(Bitmap.createScaledBitmap(mBitMap, 512, 512, false));
 
                         } catch (Exception exception) {
                             //Crashlytics.logException(exception);
